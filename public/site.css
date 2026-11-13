@@ -1,0 +1,5 @@
+/* Estilos comunes: tipografía, colores y selector de idioma. */
+@font-face{font-family:Manrope;src:url(manrope-latin.woff2) format("woff2");font-weight:200 800;font-display:swap}
+:root{--bg:#1a1429;--panel:#241b38;--panel2:#2e2347;--line:#44356a;--fg:#f5f1ff;--muted:#bbb0d8;--accent:#a78bfa;color-scheme:dark}
+.lang{display:inline-flex;border:2px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{font:inherit;font-size:.82rem;font-weight:800;padding:4px 11px;background:transparent;border:0;color:var(--muted);cursor:pointer}.lang button:hover{color:#fff}.lang button[aria-current=true]{background:var(--accent);color:#1a1429}

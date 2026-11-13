@@ -1,0 +1,10 @@
+# docker compose up -d --build   (antes: cp deploy/env.example .env y complétalo)
+services:
+  kanban:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    ports: ["127.0.0.1:3100:3000"]   # solo local: nginx (o Caddy) es quien lo publica
+    volumes: ["kanban-data:/data"]
+volumes:
+  kanban-data:

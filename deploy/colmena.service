@@ -1,0 +1,23 @@
+# /etc/systemd/system/colmena.service
+[Unit]
+Description=Kanban público
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=colmena
+Group=colmena
+WorkingDirectory=/opt/colmena
+EnvironmentFile=/etc/colmena.env
+Environment=DATA_DIR=/var/lib/colmena
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/colmena
+
+[Install]
+WantedBy=multi-user.target

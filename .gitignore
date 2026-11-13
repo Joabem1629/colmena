@@ -1,0 +1,5 @@
+data/
+*.sqlite*
+secret.key
+.env
+node_modules/

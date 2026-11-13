@@ -1,0 +1,8 @@
+{
+  "name": "colmena",
+  "version": "0.2.0",
+  "description": "Kanban público de un solo dueño: publicas tus tableros y los editas en /edit.",
+  "license": "AGPL-3.0-only",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}
