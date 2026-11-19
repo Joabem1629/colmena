@@ -1,0 +1,50 @@
+/* ============================================================================
+   TEMA — el único archivo que necesitas para cambiar el aspecto.
+   La página pública y el editor leen estas variables: cambia un valor aquí y
+   cambia en todas partes.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* ── Colores base ─────────────────────────────────────────────────────── */
+  --bg: #1a1429; /* fondo de la página */
+  --panel: #241b38; /* columnas, diálogos */
+  --panel2: #2e2347; /* fichas, elementos sobre un panel */
+  --line: #44356a; /* bordes y separadores */
+  --fg: #f5f1ff; /* texto principal */
+  --fg-strong: #fff; /* texto al pasar el ratón por encima */
+  --muted: #bbb0d8; /* texto secundario */
+
+  /* ── Color de marca ───────────────────────────────────────────────────── */
+  --accent: #a78bfa; /* color principal (botones, enlaces, barras) */
+  --on-accent: #1a1429; /* texto que va SOBRE el color principal */
+
+  /* ── Colores de acompañamiento (columnas de un tablero) ───────────────── */
+  --pink: #f472b6;
+  --teal: #2dd4bf;
+  --amber: #fbbf24;
+  --sky: #38bdf8;
+
+  /* ── Estados ──────────────────────────────────────────────────────────── */
+  --ok: #6fd08c; /* éxito / aviso "trabajo" */
+  --bad: #ff8a9a; /* error / borrar / entrega vencida */
+  --rose: #ff8aa8; /* aviso "personal" */
+
+  /* ── Capas ────────────────────────────────────────────────────────────── */
+  --overlay: rgba(10, 6, 20, 0.72); /* velo detrás de los diálogos */
+  --shadow-pop: 8px 8px 0 rgba(109, 40, 217, 0.55); /* sombra "dura" de los diálogos */
+
+  /* ── Tipografía ───────────────────────────────────────────────────────── */
+  /* Para otra fuente: súbela a public/fonts/, decláralo en base.css (@font-face) y pon su nombre aquí. */
+  --font: Manrope, system-ui, sans-serif;
+  --font-mono: ui-monospace, Menlo, Consolas, monospace;
+
+  /* ── Formas ───────────────────────────────────────────────────────────── */
+  --radius-sm: 8px; /* campos de texto */
+  --radius: 10px; /* botones y fichas */
+  --radius-lg: 12px; /* paneles y diálogos */
+
+  /* Color por defecto de las barras y columnas de un tablero (cada tablero puede cambiarlo) */
+  --bc: var(--accent);
+}

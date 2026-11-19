@@ -1,6 +1,8 @@
 FROM node:22-alpine
 WORKDIR /app
 COPY package.json server.js ./
+COPY src ./src
+COPY views ./views
 COPY public ./public
 RUN mkdir /data && chown node:node /data
 ENV PORT=3000 HOST=0.0.0.0 DATA_DIR=/data

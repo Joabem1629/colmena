@@ -1,0 +1,220 @@
+/* Página pública (solo lectura): portada con tableros y avisos, y cada tablero con sus columnas.
+   La cabecera, el selector de idioma y los colores vienen de base.css y theme.css. */
+
+body {
+  font: 1rem/1.6 var(--font);
+}
+
+.wrap {
+  width: min(100% - 32px, 1200px);
+  margin: 0 auto;
+}
+
+header {
+  padding: 14px 0;
+}
+
+.brand {
+  font-size: 1.3rem;
+}
+
+main {
+  padding: 28px 0 60px;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.15;
+  margin: 0 0 6px;
+  letter-spacing: -0.015em;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin: 34px 0 12px;
+}
+
+.mt-18 {
+  margin-top: 18px;
+}
+
+.crumb {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+}
+
+.btn {
+  font: inherit;
+  font-weight: 700;
+  padding: 8px 16px;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.btn.pri {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* ── Portada: lista de tableros públicos ────────────────────────────────── */
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.tile {
+  display: block;
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-top: 8px solid var(--bc);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.tile:hover {
+  background: var(--panel2);
+}
+
+.tile b {
+  font-size: 1.1rem;
+}
+
+/* ── Tablero: columnas y fichas ─────────────────────────────────────────── */
+
+.cols {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 6px 4px 18px;
+  margin-top: 22px;
+  align-items: flex-start;
+}
+
+.col {
+  flex: 0 0 290px;
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-top: 8px solid var(--bc);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+}
+
+.col h3 {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.col h3 span {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.k {
+  background: var(--panel2);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-top: 10px;
+}
+
+.k b {
+  display: block;
+  line-height: 1.3;
+}
+
+.k p {
+  margin: 4px 0 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+/* Ficha privada: solo se muestra 🔒 y su avance */
+.k.lock b {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.bar {
+  height: 7px;
+  margin-top: 9px;
+}
+
+.bar i {
+  width: 0;
+  transition: width 1.1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.pct {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+/* Lista de tareas desplegable */
+
+details {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+ul.t {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+}
+
+ul.t li {
+  padding: 2px 0;
+  color: var(--muted);
+}
+
+ul.t li.d {
+  color: var(--fg);
+}
+
+/* ── Avisos ─────────────────────────────────────────────────────────────── */
+
+.notices {
+  display: grid;
+  gap: 10px;
+}
+
+.n {
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-left: 8px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+}
+
+.n.vacation {
+  border-left-color: var(--amber);
+}
+
+.n.work {
+  border-left-color: var(--ok);
+}
+
+.n.personal {
+  border-left-color: var(--rose);
+}
+
+.n small {
+  color: var(--muted);
+}

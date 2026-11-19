@@ -1,0 +1,490 @@
+/* Editor privado (/edit): cabecera, pestañas de tableros, columnas, fichas y diálogos.
+   La cabecera, el selector de idioma y los colores vienen de base.css y theme.css. */
+
+body {
+  font: 1rem/1.5 var(--font);
+}
+
+.wrap {
+  width: min(100% - 32px, 1280px);
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin: 30px 0 10px;
+}
+
+.loading {
+  margin-top: 24px;
+}
+
+/* ── Cabecera ───────────────────────────────────────────────────────────── */
+
+header {
+  padding: 12px 0;
+}
+
+.brand {
+  font-size: 1.25rem;
+}
+
+#st {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+#st.bad {
+  color: var(--bad);
+}
+
+/* Los botones de la cabecera se reparten en la misma fila (y se ocultan mientras no hay sesión) */
+#tools {
+  display: contents;
+}
+
+#tools[hidden] {
+  display: none;
+}
+
+/* ── Campos y botones ───────────────────────────────────────────────────── */
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: var(--fg);
+}
+
+input,
+select,
+textarea {
+  background: var(--bg);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  min-width: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+textarea {
+  width: 100%;
+  min-height: 70px;
+  resize: vertical;
+}
+
+input[type="color"] {
+  padding: 2px;
+  width: 42px;
+  height: 36px;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 18px;
+  height: 18px;
+}
+
+.btn {
+  font-weight: 700;
+  padding: 7px 14px;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: var(--panel2);
+}
+
+.btn.pri {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn.sm {
+  padding: 3px 10px;
+  font-size: 0.9rem;
+}
+
+.btn.del {
+  border-color: var(--bad);
+  color: var(--bad);
+}
+
+/* Botón del icono del tablero (junto al nombre) */
+.emo {
+  width: auto;
+  min-width: 48px;
+  height: 38px;
+  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  text-align: center;
+}
+
+/* Botón discreto (× y acciones de tarea) */
+.ghost {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--muted);
+  padding: 2px 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.8rem;
+}
+
+.ghost:hover {
+  color: var(--accent);
+}
+
+.ghost svg {
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: -0.15em;
+}
+
+.ghost.sub {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ── Pestañas de tableros ───────────────────────────────────────────────── */
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+
+.tab {
+  padding: 6px 14px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.tab.on {
+  border-color: var(--accent);
+  background: var(--panel2);
+}
+
+/* ── Cabecera del tablero (icono, nombre, color, enlace) ────────────────── */
+
+.bh {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 12px;
+}
+
+.bh label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.bh .name {
+  font-weight: 800;
+  font-size: 1.1rem;
+  width: min(100%, 240px);
+}
+
+/* ── Columnas y fichas ──────────────────────────────────────────────────── */
+
+.cols {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 16px 2px 20px;
+  align-items: flex-start;
+}
+
+.col {
+  flex: 0 0 280px;
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-top: 8px solid var(--bc);
+  border-radius: var(--radius-lg);
+  padding: 12px;
+}
+
+.col.over {
+  border-color: var(--accent);
+}
+
+.ch {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.ch input {
+  flex: 1;
+  font-weight: 700;
+  border-color: transparent;
+  background: transparent;
+  padding: 4px 6px;
+}
+
+.ch input:focus {
+  background: var(--bg);
+}
+
+.k {
+  background: var(--panel2);
+  border-radius: var(--radius);
+  padding: 10px;
+  margin-top: 9px;
+  cursor: grab;
+}
+
+.k:hover {
+  outline: 2px solid var(--line);
+}
+
+.k b {
+  display: block;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.k small {
+  color: var(--muted);
+}
+
+.bar {
+  height: 6px;
+  margin-top: 7px;
+  border-radius: 3px;
+}
+
+.bar i {
+  transition: width 0.4s;
+}
+
+.add {
+  width: 100%;
+  margin-top: 9px;
+}
+
+.no-grow {
+  flex: 0 0 auto;
+}
+
+.empty {
+  padding: 26px;
+  margin-top: 16px;
+  background: none;
+}
+
+/* ── Avisos de la portada ───────────────────────────────────────────────── */
+
+.nt {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.nt input[type="text"] {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* ── Diálogos (editar ficha, etiquetas, elegir icono) ───────────────────── */
+
+.ov {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  display: grid;
+  place-items: start center;
+  padding: 24px 12px;
+  overflow: auto;
+  z-index: 10;
+}
+
+.dlg {
+  width: min(100%, 560px);
+  background: var(--panel);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop);
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.dlg label {
+  display: grid;
+  gap: 5px;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.dlg input[type="text"],
+.dlg input[type="number"],
+.dlg input[type="url"],
+.dlg input[type="date"] {
+  width: 100%;
+}
+
+.dlg .tip {
+  margin: 2px 0 8px;
+  font-size: 0.9rem;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Inicio de sesión */
+.login {
+  margin: 40px auto;
+}
+
+.login h2 {
+  margin: 0;
+}
+
+.login .error {
+  margin: 0;
+  color: var(--bad);
+}
+
+/* ── Tareas y subtareas ─────────────────────────────────────────────────── */
+
+.tr {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.tr input[type="text"] {
+  flex: 1;
+}
+
+/* Registro de una tarea (como los commits de git) */
+
+.lg {
+  border-left: 3px solid var(--accent);
+  padding: 6px 0 6px 12px;
+  margin-bottom: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+.lgi {
+  display: flex;
+  gap: 6px;
+}
+
+.lgi input {
+  flex: 1;
+}
+
+.lgl {
+  display: grid;
+  gap: 5px;
+}
+
+.le {
+  font-size: 0.88rem;
+  overflow-wrap: anywhere;
+}
+
+.le.sys {
+  color: var(--muted);
+}
+
+.le code {
+  font: 700 0.8rem var(--font-mono);
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+.le time {
+  color: var(--muted);
+  margin-right: 8px;
+  font-size: 0.8rem;
+}
+
+/* ── Selector de iconos ─────────────────────────────────────────────────── */
+
+.itabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ig {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(46px, 1fr));
+  gap: 6px;
+  max-height: 280px;
+  overflow: auto;
+  padding: 2px;
+}
+
+.ib {
+  height: 46px;
+  border: 2px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--panel2);
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--fg);
+  display: grid;
+  place-items: center;
+}
+
+.ib:hover {
+  border-color: var(--accent);
+}
+
+.ib svg {
+  width: 1.4em;
+  height: 1.4em;
+}
+
+/* Celda "Subir imagen" */
+.ib.up {
+  border-style: dashed;
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="{{BASE}}">
+  <title>{{NAME}} · edit</title>
+  <meta name="application-name" content="{{NAME}}">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#1a1429">
+  <meta name="icons-dir" content="{{ICONS_DIR}}">
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <link rel="stylesheet" href="css/tags.css">
+  <script type="module" src="js/editor/app.js"></script>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="./">{{NAME}}</a>
+      <span class="sp"></span>
+      <span data-lang></span>
+      <span id="st"></span>
+      <span id="tools" hidden>
+        <a class="btn sm" id="pub" href="#" target="_blank" rel="noopener">Ver mi página</a>
+        <button class="btn sm" id="bk" type="button">Respaldo</button>
+        <button class="btn sm" id="imp" type="button">Importar</button>
+        <input type="file" id="file" accept="application/json,.json" hidden>
+        <button class="btn sm" id="out" type="button">Salir</button>
+      </span>
+    </div>
+  </header>
+  <main class="wrap" id="app"><p class="muted loading">Cargando…</p></main>
+</body>
+</html>

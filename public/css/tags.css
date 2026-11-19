@@ -1,0 +1,295 @@
+/* Etiquetas, filtros y vista de tabla. Lo cargan el editor (/app) y los tableros públicos.
+   Los colores salen de theme.css; cada etiqueta trae su propio color en --tc. */
+
+/* ── Píldora de etiqueta ────────────────────────────────────────────────── */
+
+.tag-pill {
+  display: inline-block;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 2px 10px;
+  border-radius: 999px;
+  color: var(--fg);
+  border: 2px solid var(--tc, var(--line));
+  background: color-mix(in srgb, var(--tc, var(--line)) 22%, transparent);
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 7px;
+}
+
+/* Botón de filtro / selección: apagado hasta que se toca */
+.tag-pill.chip {
+  cursor: pointer;
+  background: transparent;
+  color: var(--muted);
+}
+
+.tag-pill.chip:hover {
+  color: var(--fg);
+}
+
+.tag-pill.chip.on {
+  color: var(--fg);
+  background: color-mix(in srgb, var(--tc, var(--line)) 35%, transparent);
+}
+
+/* ── Barra de filtros ───────────────────────────────────────────────────── */
+
+.toolbar {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.tb-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.tb-search {
+  flex: 1 1 200px;
+  max-width: 320px;
+  font: inherit;
+  color: var(--fg);
+  background: var(--bg);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+}
+
+.tb-search:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.toolbar .btn.sm {
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 3px 10px;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  color: var(--fg);
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Una fila por grupo: nombre y sus etiquetas */
+.fg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.fg-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+  min-width: 5.5em;
+}
+
+/* Selector "Tablero | Tabla" */
+.seg {
+  display: inline-flex;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.seg-btn {
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.seg-btn.on {
+  color: var(--fg);
+  background: var(--panel2);
+}
+
+/* ── Vista de tabla ─────────────────────────────────────────────────────── */
+
+.tbl-wrap {
+  margin-top: 16px;
+  overflow-x: auto;
+  border: 2px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+}
+
+.tbl {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 520px;
+  font-size: 0.95rem;
+}
+
+.tbl th,
+.tbl td {
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.tbl th {
+  background: var(--panel2);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.tbl tr:last-child td {
+  border-bottom: 0;
+}
+
+.tbl .ttl {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.tbl .pills {
+  margin-top: 0;
+}
+
+.tbl tr.click {
+  cursor: pointer;
+}
+
+.tbl tr.click:hover td {
+  background: var(--panel2);
+}
+
+/* ── Gestor de etiquetas (editor) ───────────────────────────────────────── */
+
+.dlg.wide {
+  width: min(100%, 720px);
+}
+
+.gcard {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  background: var(--panel2);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.gh {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.gname {
+  flex: 1;
+  font-weight: 800;
+}
+
+.gopts,
+.gscope {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.dlg label.inl {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.gtags {
+  display: grid;
+  gap: 6px;
+}
+
+.tgr {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.tgr input[type="text"] {
+  flex: 1;
+}
+
+.tagbox {
+  display: grid;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.tagbox .btn.sm {
+  justify-self: start;
+}
+
+@media (max-width: 820px) {
+  .fg-name {
+    flex-basis: 100%;
+  }
+}
+
+/* ── Datos de la ficha: portada, cliente, fecha y enlace ────────────────── */
+
+.k .cover {
+  display: block;
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.meta a {
+  color: var(--accent);
+}
+
+/* Entrega vencida */
+.late {
+  color: var(--bad);
+  font-weight: 700;
+}
+
+.dlg .two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.dlg a.small {
+  justify-self: start;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 560px) {
+  .dlg .two {
+    grid-template-columns: 1fr;
+  }
+}
